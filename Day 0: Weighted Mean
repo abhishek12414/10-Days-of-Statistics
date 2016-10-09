@@ -5,11 +5,11 @@ import java.util.*;
 
 public class Solution {
 
-    public static double weightedMean(int[] value, int[] weight) {
+    public static double weightedMean(double[] value, double[] weight) {
         
         int productData = 0, totalWeight = 0;
         
-        for(int w : weight)
+        for(double w : weight)
             totalWeight += w;
         
         for(int i=0; i<value.length; i++)
@@ -25,8 +25,8 @@ public class Solution {
         Scanner sc = new Scanner(System.in);
         
         int len = sc.nextInt();
-        int value[] = new int[len];
-        int weight[] = new int[len];
+        double value[] = new double[len];
+        double weight[] = new double[len];
         
         for(int i=0; i<len; i++)
             value[i] = sc.nextInt();
