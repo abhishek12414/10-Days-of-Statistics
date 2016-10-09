@@ -1,0 +1,39 @@
+// Day 0: Weighted Mean
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static double weightedMean(int[] value, int[] weight) {
+        
+        int productData = 0, totalWeight = 0;
+        
+        for(int w : weight)
+            totalWeight += w;
+        
+        for(int i=0; i<value.length; i++)
+            productData += value[i] * weight[i];
+        
+        return productData/totalWeight;
+    }
+    
+    public static void main(String[] args) {
+        
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        
+        Scanner sc = new Scanner(System.in);
+        
+        int len = sc.nextInt();
+        int value[] = new int[len];
+        int weight[] = new int[len];
+        
+        for(int i=0; i<len; i++)
+            value[i] = sc.nextInt();
+        
+        for(int i=0; i<len; i++)
+            weight[i] = sc.nextInt();
+        
+        System.out.println(Solution.weightedMean(value, weight));        
+    }
+}
