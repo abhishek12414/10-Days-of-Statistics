@@ -1,0 +1,61 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static double mean(int[] a) {
+        int mean = 0;
+        Arrays.sort(a);
+        for(int i : a)
+            mean += i;
+        return (double)mean/a.length;
+    }
+    
+    public static double median(int[] a) {
+        int len = a.length;
+        if(len%2 == 0)
+            return (double)(a[len/2-1] + a[len/2])/2;
+        else
+            return (double)a[len/2];
+    }
+    
+    public static int mode(int[] a) {
+        int count, max=0, result = 0;;
+        for(int i=0; i<a.length; i++) {
+            count = 0;
+            for(int j=0; j<a.length; j++) {
+                if(a[i] == a[j])
+                    ++count;
+            }
+            if(count > max) {
+                max = count;
+                result = a[i];
+            }
+        }
+        return result;
+    }
+    
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc = new Scanner(System.in);
+        int len = sc.nextInt();
+        int[] arr = new int[len];
+        int mean = 0;
+        for(int i=0; i<len; i++) {
+            arr[i] = sc.nextInt();
+        }
+        
+        //sorting array
+        Arrays.sort(arr);        
+        
+        //Output        
+        //mean
+        System.out.println(Solution.mean(arr));
+        
+        //median
+        System.out.println(Solution.median(arr));
+        
+        //mode
+        System.out.println(Solution.mode(arr));
+    }
+}
